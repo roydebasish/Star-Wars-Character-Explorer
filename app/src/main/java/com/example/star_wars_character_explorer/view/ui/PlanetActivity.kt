@@ -1,33 +1,33 @@
 package com.example.star_wars_character_explorer.view.ui
 
 import android.content.Intent
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.star_wars_character_explorer.databinding.ActivityCharacterBinding
+import com.example.star_wars_character_explorer.databinding.ActivityPlanetBinding
 import com.example.star_wars_character_explorer.listener.OnItemClickListener
 import com.example.star_wars_character_explorer.view.adapter.LoaderAdapter
-import com.example.star_wars_character_explorer.view.adapter.CharacterPagingAdapter
-import com.example.star_wars_character_explorer.viewmodel.CharacterViewModel
+import com.example.star_wars_character_explorer.view.adapter.PlanetPagingAdapter
+import com.example.star_wars_character_explorer.viewmodel.PlanetViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CharacterActivity : AppCompatActivity() {
+class PlanetActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityCharacterBinding
-    private lateinit var viewModel: CharacterViewModel
-    private lateinit var pagingAdapter: CharacterPagingAdapter
+    private lateinit var binding: ActivityPlanetBinding
+    private lateinit var viewModel: PlanetViewModel
+    private lateinit var pagingAdapter: PlanetPagingAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCharacterBinding.inflate(layoutInflater)
+        binding = ActivityPlanetBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         prepareRecyclerView()
 
-        viewModel = ViewModelProvider(this)[CharacterViewModel::class.java]
+        viewModel = ViewModelProvider(this)[PlanetViewModel::class.java]
 
         viewModel.list.observe(this) {
             pagingAdapter.submitData(lifecycle, it)
@@ -38,7 +38,7 @@ class CharacterActivity : AppCompatActivity() {
 
 
     private fun prepareRecyclerView() {
-        pagingAdapter = CharacterPagingAdapter()
+        pagingAdapter = PlanetPagingAdapter()
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(applicationContext)
             adapter = pagingAdapter.withLoadStateHeaderAndFooter(
@@ -46,10 +46,8 @@ class CharacterActivity : AppCompatActivity() {
                 footer = LoaderAdapter()
             )
         }
-
         pagingAdapter.setOnClickListener(onClicked)
     }
-
 
 
     private val onClicked = object : OnItemClickListener {
@@ -59,7 +57,7 @@ class CharacterActivity : AppCompatActivity() {
             val bundle = Bundle()
             bundle.putInt("position", position)
 
-            val intent = Intent(applicationContext,CharacterDetailsActivity::class.java)
+            val intent = Intent(applicationContext,PlanetDetailsActivity::class.java)
             intent.putExtras(bundle)
             startActivity(intent)
 

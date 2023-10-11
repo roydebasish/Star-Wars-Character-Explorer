@@ -36,7 +36,7 @@
         </TextView>
 
         <TextView
-            android:id="@+id/tvBirthYear"
+            android:id="@+id/tvClimate"
             android:text="-----"
             android:textSize="15sp"
             android:layout_marginBottom="10dp"
@@ -47,7 +47,7 @@
         </TextView>
 
         <TextView
-            android:id="@+id/tvHeight"
+            android:id="@+id/tvGravity"
             android:text="-----"
             android:textSize="15sp"
             android:layout_marginBottom="10dp"
@@ -58,7 +58,7 @@
         </TextView>
 
         <TextView
-            android:id="@+id/tvHairColor"
+            android:id="@+id/tvTerrain"
             android:text="-----"
             android:textSize="15sp"
             android:layout_marginBottom="10dp"
@@ -69,7 +69,7 @@
         </TextView>
 
         <TextView
-            android:id="@+id/tvEyeColor"
+            android:id="@+id/tvPopulation"
             android:text="-----"
             android:textSize="15sp"
             android:layout_marginBottom="10dp"
@@ -79,19 +79,9 @@
 
         </TextView>
 
-        <TextView
-            android:id="@+id/tvSkinColor"
-            android:text="-----"
-            android:textSize="15sp"
-            android:layout_marginBottom="10dp"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        </TextView>
 
         <TextView
-            android:id="@+id/tvMass"
+            android:id="@+id/tvdiameter"
             android:text="-----"
             android:textSize="15sp"
             android:layout_marginBottom="10dp"

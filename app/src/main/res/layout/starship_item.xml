@@ -22,7 +22,7 @@
         <TextView
             android:id="@+id/tvName"
             android:text="------"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textColor="@color/black"
             android:layout_marginTop="5dp"
             android:layout_marginStart="15dp"
@@ -32,7 +32,19 @@
         </TextView>
 
         <TextView
-            android:id="@+id/tvBirthYear"
+            android:id="@+id/tvModel"
+            android:text="-----"
+            android:textSize="15sp"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/tvManufacturer"
             android:text="-----"
             android:textSize="15sp"
             android:layout_marginStart="15dp"

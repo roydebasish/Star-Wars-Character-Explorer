@@ -36,7 +36,7 @@
         </TextView>
 
         <TextView
-            android:id="@+id/tvBirthYear"
+            android:id="@+id/tvModel"
             android:text="-----"
             android:textSize="15sp"
             android:layout_marginBottom="10dp"
@@ -47,7 +47,7 @@
         </TextView>
 
         <TextView
-            android:id="@+id/tvHeight"
+            android:id="@+id/tvStarshipClass"
             android:text="-----"
             android:textSize="15sp"
             android:layout_marginBottom="10dp"
@@ -58,7 +58,7 @@
         </TextView>
 
         <TextView
-            android:id="@+id/tvHairColor"
+            android:id="@+id/tvManufacturer"
             android:text="-----"
             android:textSize="15sp"
             android:layout_marginBottom="10dp"
@@ -69,7 +69,7 @@
         </TextView>
 
         <TextView
-            android:id="@+id/tvEyeColor"
+            android:id="@+id/tvCostCredits"
             android:text="-----"
             android:textSize="15sp"
             android:layout_marginBottom="10dp"
@@ -80,7 +80,7 @@
         </TextView>
 
         <TextView
-            android:id="@+id/tvSkinColor"
+            android:id="@+id/tvCrew"
             android:text="-----"
             android:textSize="15sp"
             android:layout_marginBottom="10dp"
@@ -91,7 +91,18 @@
         </TextView>
 
         <TextView
-            android:id="@+id/tvMass"
+            android:id="@+id/tvPassengers"
+            android:text="-----"
+            android:textSize="15sp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvCargoCapacity"
             android:text="-----"
             android:textSize="15sp"
             android:layout_marginBottom="10dp"

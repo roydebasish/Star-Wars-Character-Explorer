@@ -6,19 +6,19 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.star_wars_character_explorer.databinding.ActivityCharacterDetailsBinding
-import com.example.star_wars_character_explorer.viewmodel.CharacterViewModel
+import com.example.star_wars_character_explorer.databinding.ActivityPlanetDetailsBinding
+import com.example.star_wars_character_explorer.viewmodel.PlanetViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CharacterDetailsActivity : AppCompatActivity() {
+class PlanetDetailsActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityCharacterDetailsBinding
-    private lateinit var viewModel: CharacterViewModel
+    lateinit var binding: ActivityPlanetDetailsBinding
+    private lateinit var viewModel: PlanetViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCharacterDetailsBinding.inflate(layoutInflater)
+        binding = ActivityPlanetDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val bundle = intent.extras
@@ -27,18 +27,18 @@ class CharacterDetailsActivity : AppCompatActivity() {
         if (bundle != null) position = bundle.getInt("position")
 
 
-        viewModel = ViewModelProvider(this)[CharacterViewModel::class.java]
 
-        viewModel.getCharacter(position).observe(this) {
+        viewModel = ViewModelProvider(this)[PlanetViewModel::class.java]
+
+        viewModel.getPlanet(position).observe(this) {
 
             it?.let{
                 binding.tvName.text = it.name
-                binding.tvBirthYear.text = it.birth_year
-                binding.tvHeight.text = it.height
-                binding.tvEyeColor.text = it.eye_color
-                binding.tvSkinColor.text = it.skin_color
-                binding.tvHairColor.text = it.hair_color
-                binding.tvMass.text = it.mass
+                binding.tvClimate.text = it.climate
+                binding.tvdiameter.text = it.diameter
+                binding.tvGravity.text = it.gravity
+                binding.tvTerrain.text = it.terrain
+                binding.tvPopulation.text = it.population
             }
         }
 

@@ -6,19 +6,19 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.star_wars_character_explorer.databinding.ActivityCharacterDetailsBinding
-import com.example.star_wars_character_explorer.viewmodel.CharacterViewModel
+import com.example.star_wars_character_explorer.databinding.ActivityStarshipDetailsBinding
+import com.example.star_wars_character_explorer.viewmodel.StarShipViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CharacterDetailsActivity : AppCompatActivity() {
+class StarShipDetailsActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityCharacterDetailsBinding
-    private lateinit var viewModel: CharacterViewModel
+    lateinit var binding: ActivityStarshipDetailsBinding
+    private lateinit var viewModel: StarShipViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCharacterDetailsBinding.inflate(layoutInflater)
+        binding = ActivityStarshipDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val bundle = intent.extras
@@ -27,18 +27,19 @@ class CharacterDetailsActivity : AppCompatActivity() {
         if (bundle != null) position = bundle.getInt("position")
 
 
-        viewModel = ViewModelProvider(this)[CharacterViewModel::class.java]
+        viewModel = ViewModelProvider(this)[StarShipViewModel::class.java]
 
-        viewModel.getCharacter(position).observe(this) {
+        viewModel.getStarShip(position).observe(this) {
 
             it?.let{
                 binding.tvName.text = it.name
-                binding.tvBirthYear.text = it.birth_year
-                binding.tvHeight.text = it.height
-                binding.tvEyeColor.text = it.eye_color
-                binding.tvSkinColor.text = it.skin_color
-                binding.tvHairColor.text = it.hair_color
-                binding.tvMass.text = it.mass
+                binding.tvModel.text = it.model
+                binding.tvStarshipClass.text = it.starship_class
+                binding.tvManufacturer.text = it.manufacturer
+                binding.tvCostCredits.text = it.cost_in_credits
+                binding.tvCrew.text = it.crew
+                binding.tvCargoCapacity.text = it.cargo_capacity
+                binding.tvPassengers.text = it.passengers
             }
         }
 

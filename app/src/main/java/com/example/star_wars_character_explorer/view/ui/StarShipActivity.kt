@@ -1,33 +1,33 @@
 package com.example.star_wars_character_explorer.view.ui
 
 import android.content.Intent
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.star_wars_character_explorer.databinding.ActivityCharacterBinding
+import com.example.star_wars_character_explorer.databinding.ActivityStarShipBinding
 import com.example.star_wars_character_explorer.listener.OnItemClickListener
 import com.example.star_wars_character_explorer.view.adapter.LoaderAdapter
-import com.example.star_wars_character_explorer.view.adapter.CharacterPagingAdapter
-import com.example.star_wars_character_explorer.viewmodel.CharacterViewModel
+import com.example.star_wars_character_explorer.view.adapter.StarShipPagingAdapter
+import com.example.star_wars_character_explorer.viewmodel.StarShipViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CharacterActivity : AppCompatActivity() {
+class StarShipActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityCharacterBinding
-    private lateinit var viewModel: CharacterViewModel
-    private lateinit var pagingAdapter: CharacterPagingAdapter
+    private lateinit var binding: ActivityStarShipBinding
+    private lateinit var viewModel: StarShipViewModel
+    private lateinit var pagingAdapter: StarShipPagingAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCharacterBinding.inflate(layoutInflater)
+        binding = ActivityStarShipBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         prepareRecyclerView()
 
-        viewModel = ViewModelProvider(this)[CharacterViewModel::class.java]
+        viewModel = ViewModelProvider(this)[StarShipViewModel::class.java]
 
         viewModel.list.observe(this) {
             pagingAdapter.submitData(lifecycle, it)
@@ -38,7 +38,7 @@ class CharacterActivity : AppCompatActivity() {
 
 
     private fun prepareRecyclerView() {
-        pagingAdapter = CharacterPagingAdapter()
+        pagingAdapter = StarShipPagingAdapter()
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(applicationContext)
             adapter = pagingAdapter.withLoadStateHeaderAndFooter(
@@ -46,7 +46,6 @@ class CharacterActivity : AppCompatActivity() {
                 footer = LoaderAdapter()
             )
         }
-
         pagingAdapter.setOnClickListener(onClicked)
     }
 
@@ -59,12 +58,11 @@ class CharacterActivity : AppCompatActivity() {
             val bundle = Bundle()
             bundle.putInt("position", position)
 
-            val intent = Intent(applicationContext,CharacterDetailsActivity::class.java)
+            val intent = Intent(applicationContext,StarShipDetailsActivity::class.java)
             intent.putExtras(bundle)
             startActivity(intent)
 
         }
-
 
     }
 
